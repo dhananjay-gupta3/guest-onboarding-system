@@ -1,0 +1,144 @@
+/* General Styles */
+
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #6a9ac4;
+    height: 75vh;
+}
+
+.contact-box {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 1000px;
+    overflow: hidden;
+}
+
+/* Contact Links Section */
+.contact-links {
+    flex: 1;
+    background-color: #1f2e43;
+    color: white;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-links h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.link {
+    margin: 10px;
+}
+
+.link img {
+    width: 45px;
+    height: 45px;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.link img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* Contact Form Section */
+.contact-form-wrapper {
+    flex: 1;
+    padding: 30px;
+}
+
+.form-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-item input,
+.form-item textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-item label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.9rem;
+    color: #aaa;
+    pointer-events: none;
+    transition: all 0.2s;
+}
+
+.form-item input:focus+label,
+.form-item input:not(:placeholder-shown)+label,
+.form-item textarea:focus+label,
+.form-item textarea:not(:placeholder-shown)+label {
+    top: -20px;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+.submit-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #fd917e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #f87b60;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-box {
+        flex-direction: column;
+    }
+
+    .contact-links {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-links h2 {
+        font-size: 1.5rem;
+    }
+
+    .link img {
+        width: 40px;
+        height: 40px;
+    }
+}

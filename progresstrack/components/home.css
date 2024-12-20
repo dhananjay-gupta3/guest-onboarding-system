@@ -1,0 +1,153 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+}
+
+h1,
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.home-container {
+    padding: 1rem;
+    background-color: #fbb6b6;
+}
+
+/* Title */
+.home-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.available-hotels-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Hotel Cards Container */
+.hotel-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.hotel-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hotel-card:hover {
+    transform: translateY(-10px);
+}
+
+.hotel-logo {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.hotel-card-content {
+    padding: 1rem;
+}
+
+.hotel-name {
+    font-size: 1.25rem;
+    margin: 0.5rem 0;
+    font-weight: bold;
+}
+
+.hotel-address {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.book-now-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.book-now-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+
+    /* For Tablets, show 2 cards per row */
+    .hotel-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* For Mobile Landscape and smaller, show 1 card per row */
+    .hotel-cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hotel-logo {
+        height: 150px;
+        /* Make logo smaller on smaller screens */
+    }
+
+    .hotel-name {
+        font-size: 1.1rem;
+        /* Adjust font size for smaller screens */
+    }
+
+    .hotel-address {
+        font-size: 0.9rem;
+        /* Adjust address font size for smaller screens */
+    }
+
+    .book-now-btn {
+        width: 100%;
+        /* Make the button full width on mobile */
+        padding: 1rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* For very small screens, adjust padding and font sizes */
+    .hotel-card {
+        padding: 0.5rem;
+    }
+
+    .hotel-logo {
+        height: 120px;
+    }
+
+    .hotel-name {
+        font-size: 1rem;
+    }
+
+    .hotel-address {
+        font-size: 0.8rem;
+    }
+
+    .book-now-btn {
+        font-size: 1.1rem;
+        /* Make button text larger on small screens */
+        padding: 1rem;
+    }
+}

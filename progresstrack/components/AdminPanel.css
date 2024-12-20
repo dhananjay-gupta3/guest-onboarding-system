@@ -1,0 +1,215 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h1,
+h2,
+h3 {
+    color: #444;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Admin Panel */
+.admin-panel {
+    padding: 2rem;
+}
+
+.admin-panel h2 {
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group button {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-group button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-group button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Table Styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.table img {
+    max-width: 50px;
+    border-radius: 5px;
+}
+
+.table-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.table-actions button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.table-actions button.edit {
+    background-color: #ffc107;
+    color: white;
+}
+
+.table-actions button.edit:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+
+.table-actions button.delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.table-actions button.delete:hover {
+    background-color: #b02a37;
+    transform: scale(1.05);
+}
+
+/* QR Code Styles */
+.qr-code {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+/* Edit Hotel Form */
+form h3 {
+    font-family: 'Roboto', sans-serif;
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+form input {
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+form button {
+    padding: 0.75rem 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+form button.cancel {
+    background-color: #6c757d;
+    margin-left: 0.5rem;
+}
+
+form button.cancel:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+    .table th,
+    .table td {
+        font-size: 0.875rem;
+    }
+
+    .form-group input,
+    .form-group button {
+        padding: 0.5rem;
+    }
+
+    .admin-panel {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .table th,
+    .table td {
+        font-size: 0.75rem;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-size: 1.25rem;
+    }
+}

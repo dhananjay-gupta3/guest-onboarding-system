@@ -1,0 +1,78 @@
+/* Importing Font */
+@import url('https://fonts.googleapis.com/css?family=Rozha+One');
+
+/* Variables for breakpoints */
+:root {
+    --tablet-min-width: 768px;
+    --tablet-max-width: 1023px;
+    --desktop-min-width: 1024px;
+}
+
+/* General Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #0d070a;
+}
+
+.container-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f6eef3;
+}
+
+.container {
+    max-width: 80%;
+}
+
+@media (min-width: var(--tablet-min-width)) and (max-width: var(--tablet-max-width)) {
+    .container {
+        max-width: 50%;
+    }
+}
+
+@media (min-width: var(--desktop-min-width)) {
+    .container {
+        max-width: 38%;
+    }
+}
+
+/* Typography */
+h1 {
+    font-family: 'Rozha One', serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* List Styling */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+li {
+    display: inline-block;
+    width: 30%;
+}
+
+a {
+    color: #d22351;
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #b51e48;
+    /* Darkened color */
+}
