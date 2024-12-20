@@ -16,13 +16,7 @@ const guestAdminRoutes = require('./routes/guestAdminRoutes');
 
 
 const PORT = process.env.PORT || 5000;
-app.use(cors(
-    // {
-    //     origin: ["https://guest-onboardings-lmcujn5ps-dhananjaygupta3s-projects.vercel.app/"],
-    //     methods: ["GET", "POST", "PUT", "DELETE"],
-    //     credentials: true
-    // }
-));
+app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
