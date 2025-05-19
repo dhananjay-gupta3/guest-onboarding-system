@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './home.css'
-
+import { backend_uri } from '../src/server.js'
 const Home = () => {
     const [hotels, setHotels] = useState([]);
     const navigate = useNavigate();
@@ -11,7 +11,7 @@ const Home = () => {
     useEffect(() => {
         // Fetch the list of hotels from the backend API
         axios
-            .get("http://localhost:5000/api/hotels")  // Correct backend URL
+            .get(`${backend_uri}/api/hotels`)  // Correct backend URL
             .then((response) => {
                 setHotels(response.data);  // Set the fetched hotel data
             })
@@ -30,7 +30,7 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            
+
 
             <div className="hotel-cards-container">
                 {hotels.length === 0 ? (

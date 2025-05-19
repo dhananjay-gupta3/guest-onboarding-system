@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { QRCodeCanvas } from 'qrcode.react';
+import {backend_uri} from '../src/server.js'
 import './AdminPanel.css'
 
 
@@ -19,7 +20,7 @@ const AdminPanel = () => {
     // Fetch hotels from backend
     const fetchHotels = async () => {
         try {
-            const response = await axios.get("http://localhost:5000/api/hotels");
+            const response = await axios.get(`${ backend_uri }/api/hotels` );
             setHotels(response.data);
         } catch (err) {
             setError("Failed to fetch hotels");
@@ -39,7 +40,7 @@ const AdminPanel = () => {
         }
 
         try {
-            await axios.post("http://localhost:5000/admin/hotel", formData);  // Use /admin/hotel
+            await axios.post( `${backend_uri}/admin/hotel`, formData);  // Use /admin/hotel
             setNewHotel({ name: "", address: "", logo: null });
             fetchHotels();
         } catch (err) {
@@ -59,7 +60,7 @@ const AdminPanel = () => {
 
         try {
             await axios.put(
-                `http://localhost:5000/api/hotels/${editingHotel._id}`,
+                `${backend_uri}/api/hotels/${editingHotel._id}`,
                 formData
             );
             setEditingHotel(null); // Close the editing form
@@ -74,7 +75,7 @@ const AdminPanel = () => {
     // Delete hotel
     const handleDeleteHotel = async (hotelId) => {
         try {
-            await axios.delete(`http://localhost:5000/api/hotels/${hotelId}`);
+            await axios.delete(`${backend_uri}/api/hotels/${hotelId}`);
             fetchHotels(); // Refresh the list of hotels after deletion
         } catch (err) {
             console.error("Failed to delete hotel:", err);
@@ -148,7 +149,7 @@ const AdminPanel = () => {
                             <td>
                                 <div className="qr-code">
                                     <QRCodeCanvas
-                                        value={`http://localhost:3000/hotels/${hotel._id}`}
+                                        value={`http://localhost:5173/hotels/${hotel._id}`}
                                         size={64}
                                         level="H"
                                     />

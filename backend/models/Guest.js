@@ -10,7 +10,7 @@ const GuestSchema = new mongoose.Schema({
     },
     email: { type: String, required: true },
     idProof: { type: String, required: true },
-    hotelId: { type: mongoose.Schema.Types.ObjectId, ref: "Hotel" },
+    hotelId: { type: mongoose.Schema.Types.ObjectId, ref: "Hotel", required: true },
 });
 const Guest = mongoose.model("Guest", GuestSchema);
 module.exports = Guest;

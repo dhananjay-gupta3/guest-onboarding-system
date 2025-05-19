@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
+import { backend_uri } from '../src/server.js'
 const HotelLandingPage = () => {
     const { id } = useParams();
     const [hotel, setHotel] = useState(null);
@@ -12,7 +12,7 @@ const HotelLandingPage = () => {
     useEffect(() => {
         const fetchHotel = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/hotels/${id}`);
+                const response = await axios.get(`${backend_uri}/api/hotels/${id}`);
                 setHotel(response.data);
             } catch (err) {
                 setError('Failed to load hotel details');

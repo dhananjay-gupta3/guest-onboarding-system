@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './GuestAdminPanel.css';
+import {backend_uri} from '../src/server.js'
 function GuestAdminPanel() {
     const { hotelId } = useParams();
     const [guests, setGuests] = useState([]);
@@ -13,7 +14,7 @@ function GuestAdminPanel() {
     // Fetch guests for the given hotel
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/guest-admin/${hotelId}`)
+            .get(`${backend_uri}/guest-admin/${hotelId}`)
             .then((response) => {
                 console.log("Response Data:", response.data); // Debug response
                 setGuests(response.data.guests || []);
@@ -50,7 +51,7 @@ function GuestAdminPanel() {
         }
 
         try {
-            await axios.put(`/guest-admin/update/${updatedGuest._id}`, updatedGuest);
+            await axios.put(`http://localhost:5000/guest-admin/update/${hotelId}/${updatedGuest._id}`, updatedGuest);
             setGuests(guests.map(guest => guest._id === updatedGuest._id ? updatedGuest : guest));
             setGuestToEdit(null);
             setFormErrors({});
@@ -132,11 +133,14 @@ function GuestAdminPanel() {
                                 </td>
                                 <td>
                                     {guestToEdit && guestToEdit._id === guest._id ? (
-                                        <input
-                                            type="text"
+                                        <select
                                             value={guestToEdit.purpose}
                                             onChange={(e) => setGuestToEdit({ ...guestToEdit, purpose: e.target.value })}
-                                        />
+                                        >
+                                            <option value="Personal">Personal</option>
+                                            <option value="Business">Business</option>
+                                            <option value="Other">Other</option>
+                                        </select>
                                     ) : (
                                         guest.purpose
                                     )}

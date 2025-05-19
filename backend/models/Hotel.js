@@ -5,6 +5,11 @@ const hotelSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    fullname: {
+        type: String,
+        require: true,
+
+    },
     address: {
         type: String,
         required: true,
@@ -17,6 +22,7 @@ const hotelSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+
 });
 
 const Hotel = mongoose.model('Hotel', hotelSchema);

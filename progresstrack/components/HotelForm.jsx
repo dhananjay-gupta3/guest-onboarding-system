@@ -1,9 +1,8 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './HotelForm.css'; // Import the CSS file
-
+import { backend_uri } from '../src/server.js'
 const HotelForm = () => {
     const { id } = useParams(); // Get the hotel ID from the URL
     const navigate = useNavigate(); // For navigation after submission
@@ -24,7 +23,7 @@ const HotelForm = () => {
     useEffect(() => {
         const fetchHotel = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/hotels/${id}`);
+                const response = await axios.get(`${backend_uri}/api/hotels/${id}`);
                 setHotel(response.data);
             } catch (error) {
                 console.error('Error fetching hotel:', error);
@@ -74,7 +73,7 @@ const HotelForm = () => {
         }
 
         try {
-            await axios.post(`http://localhost:5000/api/hotels/${id}/book`, formData);
+            await axios.post(`http://localhost:5000/api/hotels/${id}/book`, { ...formData, hotelId: id });
             setShowPopup(true);
             setTimeout(() => {
                 setShowPopup(false);

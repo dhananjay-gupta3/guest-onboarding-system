@@ -1,9 +1,8 @@
 const express = require('express');
 const Guest = require('../models/Guest');
-
 const router = express.Router();
 
-// Fetch all guests for a particular hotel
+
 router.get('/:hotelId', async (req, res) => {
     try {
         const guests = await Guest.find({ hotelId: req.params.hotelId });
@@ -13,14 +12,14 @@ router.get('/:hotelId', async (req, res) => {
     }
 });
 
-// Update guest information
-router.put('/update/:guestId', async (req, res) => {
+
+router.put('/update/:hotelId', async (req, res) => {
     try {
         const { fullName, mobileNumber, purpose, stayDates, email } = req.body;
-        const updatedGuest = await Guest.findByIdAndUpdate(
-            req.params.guestId,
+        const updatedGuest = await Guest.findOneAndUpdate(
+            { _id: req.params.guestId, hotelId: req.params.hotelId },
             { fullName, mobileNumber, purpose, stayDates, email },
-            { new: true } // Return the updated guest object
+            { new: true }
         );
         res.json({ message: 'Guest updated successfully', guest: updatedGuest });
     } catch (error) {
@@ -37,6 +36,16 @@ router.get("/guest-admin/:hotelId", async (req, res) => {
     } catch (error) {
         console.error("Error fetching guests:", error);
         res.status(500).json({ error: "Failed to fetch guests" });
+    }
+});
+
+router.post('/', async (req, res) => {
+    try {
+        const newGuest = new Guest(req.body);
+        await newGuest.save();
+        res.status(201).json({ message: 'Guest added successfully', guest: newGuest });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
     }
 });
 

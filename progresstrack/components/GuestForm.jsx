@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import { backend_uri } from '../src/server.js'
 const GuestForm = () => {
     const { hotelId } = useParams();
     const [hotel, setHotel] = useState(null);
@@ -21,7 +21,7 @@ const GuestForm = () => {
     useEffect(() => {
         // Fetch hotel details for the booking form
         axios
-            .get(`http://localhost:5000/hotel/${hotelId}`)
+            .get(`${backend_uri}/hotel/${hotelId}`)
             .then((response) => setHotel(response.data))
             .catch((error) => console.error(error));
     }, [hotelId]);
@@ -29,7 +29,7 @@ const GuestForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post(`http://localhost:5000/hotel/${hotelId}`, formData)
+            .post(`${backend_uri}/hotel/${hotelId}`, formData)
             .then(() => navigate(`/thank-you/${hotelId}`))
             .catch((error) => console.error(error));
     };

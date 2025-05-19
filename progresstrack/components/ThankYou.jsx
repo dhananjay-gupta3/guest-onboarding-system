@@ -2,14 +2,14 @@
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
+import { backend_uri } from '../src/server.js'
 const ThankYou = () => {
     const { hotelId } = useParams();
     const [hotelName, setHotelName] = useState('');
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/hotel/${hotelId}`)
+            .get(`${backend_uri}/hotel/${hotelId}`)
             .then((response) => setHotelName(response.data.name))
             .catch((error) => console.error(error));
     }, [hotelId]);

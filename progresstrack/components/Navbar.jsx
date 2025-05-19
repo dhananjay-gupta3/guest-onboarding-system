@@ -41,7 +41,7 @@ const Navbar = () => {
         <div>
             {/* Navbar */}
             <nav className="navbar">
-                <div className="logo">MyHotel</div>
+                <div className="logo" onClick={() => navigate('/')}>MyHotel</div>
                 <div
                     className={`hamburger ${isMenuOpen ? 'open' : ''}`}
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
